@@ -1568,14 +1568,14 @@ function PanelBusiness() {
               </>
             ))}
             <div style={{ gridColumn:"1/-1", height:1, background:C.bd, margin:"3px 0" }} />
-            <div style={{ fontWeight:700 }}>TOTAL</div>
+            <div style={{ fontWeight:700, color:"#e2eaf6" }}>TOTAL</div>
             {pnlRev.map((v,i)=><div key={i} style={{ textAlign:"center",
               fontFamily:"'JetBrains Mono',monospace", fontWeight:700 }}>${v}K</div>)}
             <div style={{ color:C.rd }}>OpEx</div>
             {PNL.opex.map((v,i)=><div key={i} style={{ textAlign:"center",
               fontFamily:"'JetBrains Mono',monospace", color:C.rd }}>-${v}K</div>)}
             <div style={{ gridColumn:"1/-1", height:1, background:C.bd, margin:"3px 0" }} />
-            <div style={{ fontWeight:800 }}>Resultado</div>
+            <div style={{ fontWeight:800, color:"#e2eaf6" }}>Resultado</div>
             {pnlRes.map((v,i)=>(
               <div key={i} style={{ textAlign:"center", fontFamily:"'JetBrains Mono',monospace",
                 fontWeight:700, color:v>=0?C.gn:C.rd }}>
@@ -1748,7 +1748,7 @@ function PanelMiMarca({ brand }) {
         <div style={{ fontSize:9, color:C.mt, textTransform:"uppercase", letterSpacing:1.5, marginBottom:4 }}>
           Tu Marca
         </div>
-        <div style={{ fontSize:28, fontWeight:900 }}>{brand.name}</div>
+        <div style={{ fontSize:28, fontWeight:900, color:"#e2eaf6" }}>{brand.name}</div>
         <div style={{ fontSize:10, color:C.mt, marginTop:4 }}>
           {brand.activeExp} experiencias activas · {brand.totalExp} históricas · {brand.markers} markers
         </div>
@@ -1765,7 +1765,7 @@ function PanelMiMarca({ brand }) {
           <div key={i} style={{ background:C.surface, border:`1px solid ${C.bd}`,
             borderRadius:8, padding:"10px 14px", marginBottom:6 }}>
             <div style={{ display:"flex", justifyContent:"space-between", marginBottom:5 }}>
-              <span style={{ fontWeight:600, fontSize:12 }}>{e.name}</span>
+              <span style={{ fontWeight:600, fontSize:12, color:"#e2eaf6" }}>{e.name}</span>
               <div>
                 <Badge text={`${e.health}%`} color={e.health>=70?C.gn:C.or} />
                 <Badge text={e.daysLeft>0?`${e.daysLeft}d`:"Finalizada"} color={e.daysLeft>0?C.gn:C.dm} />
@@ -1820,7 +1820,7 @@ function PanelExperiencias({ experiences, onExpClick }) {
                 <div style={{ width:7, height:7, borderRadius:"50%", flexShrink:0,
                   background:STATUS_COLOR[e.status]||C.dm,
                   boxShadow:e.status==="active"?`0 0 8px ${C.gn}`:"none" }} />
-                <span style={{ fontWeight:700, fontSize:13 }}>{e.name}</span>
+                <span style={{ fontWeight:700, fontSize:13, color:"#e2eaf6" }}>{e.name}</span>
                 <Badge text={e.brand} color={C.ac} />
               </div>
               <div style={{ fontSize:9, color:C.mt, marginTop:3, marginLeft:15 }}>
@@ -4865,7 +4865,7 @@ function ExpOverlay({ exp, onClose }) {
             <div style={{ fontSize:9, color:C.mt, textTransform:"uppercase", letterSpacing:1.5, marginBottom:4 }}>
               Detalle de Experiencia
             </div>
-            <h2 style={{ fontSize:20, fontWeight:900, margin:0 }}>{exp.name}</h2>
+            <h2 style={{ fontSize:20, fontWeight:900, margin:0, color:"#e2eaf6" }}>{exp.name}</h2>
             <div style={{ fontSize:10, color:C.mt, marginTop:4 }}>
               {exp.brand} · {exp.rewardType} · {exp.markers} markers · {exp.start} → {exp.end}
               {exp.daysLeft>0&&<span style={{ color:C.gn, marginLeft:8 }}>{exp.daysLeft}d restantes</span>}
@@ -4884,7 +4884,7 @@ function ExpOverlay({ exp, onClose }) {
             padding:10, display:"flex", alignItems:"center", gap:8 }}>
             <Ring value={exp.health} size={36} stroke={3} color={exp.health>=70?C.gn:exp.health>=50?C.or:C.rd} />
             <div>
-              <div style={{ fontSize:15, fontWeight:800, fontFamily:"'JetBrains Mono',monospace" }}>{exp.health}%</div>
+              <div style={{ fontSize:15, fontWeight:800, fontFamily:"'JetBrains Mono',monospace", color:"#e2eaf6" }}>{exp.health}%</div>
               <div style={{ fontSize:7, color:C.mt }}>Health score</div>
             </div>
           </div>
@@ -4988,7 +4988,7 @@ function BrandOverlay({ brand, allExp, onClose, onExpClick }) {
         <div style={{ display:"flex", justifyContent:"space-between", marginBottom:16 }}>
           <div>
             <div style={{ fontSize:9, color:C.mt, textTransform:"uppercase", letterSpacing:1.5, marginBottom:4 }}>Marca</div>
-            <h2 style={{ fontSize:20, fontWeight:900, margin:0 }}>{brand.name}</h2>
+            <h2 style={{ fontSize:20, fontWeight:900, margin:0, color:"#e2eaf6" }}>{brand.name}</h2>
             <div style={{ fontSize:10, color:C.mt, marginTop:4 }}>
               {brand.activeExp}/{brand.totalExp} exp activas · {brand.markers} markers
             </div>
@@ -5015,14 +5015,14 @@ function BrandOverlay({ brand, allExp, onClose, onExpClick }) {
               onMouseEnter={el=>el.currentTarget.style.borderColor=C.bda}
               onMouseLeave={el=>el.currentTarget.style.borderColor=C.bd}>
               <div style={{ display:"flex", justifyContent:"space-between", marginBottom:5 }}>
-                <span style={{ fontWeight:600, fontSize:11 }}>{e.name} <span style={{ fontSize:8, color:C.ac }}>↗</span></span>
+                <span style={{ fontWeight:600, fontSize:11, color:"#e2eaf6" }}>{e.name} <span style={{ fontSize:8, color:C.ac }}>↗</span></span>
                 <Badge text={`${e.health}%`} color={e.health>=70?C.gn:C.or} />
               </div>
               <div style={{ display:"grid", gridTemplateColumns:"repeat(4,1fr)", gap:4, fontSize:9 }}>
                 {[["Users",fmt(e.users)],["Comp",fmt(e.completions)],
                   ["Rate",pct(e.compRate)],["Claim",pct(e.rewardConv.pct)]].map(([l,v],j)=>(
                   <div key={j}><span style={{ color:C.mt }}>{l}</span>
-                    <div style={{ fontWeight:700, fontFamily:"'JetBrains Mono',monospace" }}>{v}</div>
+                    <div style={{ fontWeight:700, fontFamily:"'JetBrains Mono',monospace", color:"#e2eaf6" }}>{v}</div>
                   </div>
                 ))}
               </div>
